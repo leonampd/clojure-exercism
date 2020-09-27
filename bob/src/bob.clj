@@ -1,22 +1,22 @@
 (ns bob
   (:require [clojure.string :as string]))
 
-(defn question?
+(defn- question?
   [input]
   (string/ends-with? input "?"))
 
-(defn silence?
+(defn- silence?
   [input]
   (string/blank? input))
 
-(defn yelling-me?
+(defn- yelling-me?
   [input]
   (and
     (not= (string/upper-case input)
          (string/lower-case input))
     (= (string/upper-case input) input)))
 
-(defn yelling-question?
+(defn- yelling-question?
   [input]
   (and (yelling-me? input) (question? input)))
 
